@@ -2,8 +2,8 @@ const express = require('express')
 const https = require('https')
 const fs = require('fs')
 
-var key = fs.readFileSync('/etc/letsencrypt/live/mtd-dev.com/fullchain.pem');
-var cert = fs.readFileSync('/etc/letsencrypt/live/mtd-dev.com/privkey.pem');
+var key = fs.readFileSync('/etc/letsencrypt/live/mtd-dev.com/privkey.pem');
+var cert = fs.readFileSync('/etc/letsencrypt/live/mtd-dev.com/fullchain.pem');
 var options = {
   key: key,
   cert: cert
