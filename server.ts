@@ -1,7 +1,16 @@
 const express = require('express')
-const http = require('http')
+const https = require('https')
+const fs = require('fs')
+
+var key = fs.readFileSync('../selfsigned.key');
+var cert = fs.readFileSync('../selfsigned.crt');
+var options = {
+  key: key,
+  cert: cert
+};
+
 const app = express()
-const server = http.createServer(app)
+const server = https.createServer(options, app)
 
 import { Server } from 'socket.io'
 const io = new Server(server, {
