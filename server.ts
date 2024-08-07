@@ -1,4 +1,5 @@
 const express = require('express')
+/*
 const https = require('https')
 const fs = require('fs')
 
@@ -8,9 +9,11 @@ var options = {
   key: key,
   cert: cert
 };
+*/
 
+const http = require('http')
 const app = express()
-const server = https.createServer(options, app)
+const server = http.createServer(app)
 
 import { Server } from 'socket.io'
 const io = new Server(server, {
@@ -112,6 +115,6 @@ io.on('connection', socket => {
 
 })
 
-server.listen(443, () => {
+server.listen(3001, () => {
   console.log('✔️ Server listening on port 3001')
 })
